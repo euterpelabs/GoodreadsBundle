@@ -1,6 +1,6 @@
 <?php
 
-namespace EuterpeLabs\GoodreadsBundle\DependencyInjection;
+namespace Euterpe\GoodreadsBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,7 +18,26 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('euterpelabs_goodreads');
+        $rootNode = $treeBuilder->root('euterpe_goodreads');
+
+        $rootNode
+        	->children()
+        		->arrayNode('keys')
+        			->children()
+        				->scalarNode('key')
+        					->cannotBeEmpty()
+        				->end()
+        				->scalarNode('secret')
+        					->cannotBeEmpty()
+        				->end()
+        			->end()
+        		->end()
+        		->enumNode('default_format')
+        			->values(array('json', 'xml'))
+        			->defaultValue('json')
+        		->end()
+        	->end()
+        ;
 
         return $treeBuilder;
     }
