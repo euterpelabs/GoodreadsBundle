@@ -1,0 +1,16 @@
+{
+    "name": "euterpe/goodreads-bundle",
+    "type": "symfony-bundle",
+    "description": "",
+    "keywords": ["Goodreads"],
+    "homepage": "https://github.com/euterpelabs/GoodreadsBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Orlando Rodríguez",
+        }
+    ],
+    "require": {
+        "symfony/symfony": "~2.3"
+    }
+}
